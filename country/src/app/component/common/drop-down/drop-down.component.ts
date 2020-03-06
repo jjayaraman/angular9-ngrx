@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-
+/**
+ * Reusable drop down component
+ * @author Jayakumar Jayaraman
+ */
 @Component({
   selector: 'drop-down',
   templateUrl: './drop-down.component.html',
@@ -17,6 +20,11 @@ export class DropDownComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  // onChange event for dtopdown
+  onChangeEvent($event: MouseEvent) {
+    this.onChange.emit($event)
   }
 
 }

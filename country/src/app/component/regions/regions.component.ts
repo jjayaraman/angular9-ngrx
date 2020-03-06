@@ -9,6 +9,7 @@ import { CountryService } from './../../service/country.service';
 export class RegionsComponent implements OnInit {
 
   regions: object[]
+  selectedRegion: string
 
   constructor() { }
 
@@ -20,8 +21,9 @@ export class RegionsComponent implements OnInit {
   }
 
 
-  onchange() {
-    console.log('on ch');
+  onChange(event) {
+    console.log('on ch', event);
+    this.selectedRegion = event.value
 
   }
 
