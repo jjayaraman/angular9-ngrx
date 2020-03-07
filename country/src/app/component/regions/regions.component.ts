@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CountryService } from './../../service/country.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'regions',
@@ -8,23 +7,20 @@ import { CountryService } from './../../service/country.service';
 })
 export class RegionsComponent implements OnInit {
 
-  regions: object[]
-  selectedRegion: string
-
   constructor() { }
+
+  @Input() options: object[]
+  @Input() optionLabel: string
+  @Input() placeholder: string
+  @Output() onChange = new EventEmitter()
 
 
   ngOnInit(): void {
-    this.regions = [
-      { 'label': 'Asia', 'value': 'asia' },
-      { 'label': 'Europe', 'value': 'europe' }]
   }
 
-
-  onChange(event) {
-    console.log('on ch', event);
-    this.selectedRegion = event.value
-
+  // onChange event for dtopdown
+  onChangeEvent($event: MouseEvent) {
+    this.onChange.emit($event)
   }
 
 }
