@@ -4,32 +4,30 @@
     <br />
 
     <div class="container-fluid">
+        <p-panel header="Country Search">
+            <br />
 
-        <div class='row'>
-            <div class="col-2">
-                <label>Region</label>
-            </div>
+            <regions label='Region' [options]='regions' optionLabel='label' placeholder='Choose a region'
+                (onChange)='regionOnChange($event)'>
+            </regions>
+            <br />
 
-            <div class="col-10">
-                <regions [options]='regions' optionLabel='label' placeholder='Choose a region'
-                    (onChange)='regionOnChange($event)'>
-                </regions>
-            </div>
-        </div>
-        <br />
-
-        <div class='row' *ngIf="selectedRegion">
-            <div class="col-2">
-                <label>Country</label>
-            </div>
-
-            <div class="col-10">
-                <regions [options]='countries' optionLabel='name' placeholder='Choose a country'
+            <div *ngIf="selectedRegion">
+                <regions label='Country' [options]='countries' optionLabel='name' placeholder='Choose a country'
                     (onChange)='countryOnChange($event)'>
                 </regions>
             </div>
-        </div>
+            <br />
+            <button pButton type="reset" label="Reset"></button>
+        </p-panel>
+        <br />
 
+        <p-panel header="Country Details" *ngIf="selectedRegion && selectedCountry">
+            <br />
+
+            <country-details [country]='selectedCountry'></country-details>
+
+        </p-panel>
 
     </div>
 </form>

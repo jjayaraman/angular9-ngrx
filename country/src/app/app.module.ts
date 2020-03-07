@@ -6,16 +6,21 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PanelModule } from 'primeng/panel';
+import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
+
 
 import { RegionsComponent } from './component/regions/regions.component';
 import { HomeComponent } from './component/home/home/home.component';
+import { CountryDetailsComponent } from './component/country-details/country-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegionsComponent,
-    HomeComponent
+    HomeComponent,
+    CountryDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,8 @@ import { HomeComponent } from './component/home/home/home.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    PanelModule,
+    ButtonModule,
     DropdownModule
   ],
   providers: [],

@@ -1,5 +1,6 @@
 import { CountryService } from './../../../service/country.service';
 import { Component, OnInit } from '@angular/core';
+import Country from 'src/app/model/Country';
 
 @Component({
   selector: 'home',
@@ -11,6 +12,7 @@ export class HomeComponent implements OnInit {
   regions: object[]
   countries: object[]
   selectedRegion: string
+  selectedCountry: Country
 
   constructor(private countryService: CountryService) {
   }
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   regionOnChange(event) {
     this.selectedRegion = event.value
+    this.selectedCountry = null
     this.countryService.getCountriesByRegion(event.value)
       .then(res => {
         this.countries = res
@@ -34,8 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   countryOnChange(event) {
-    console.log('countryOnChange ...', event);
-
+    this.selectedCountry = event.value
   }
 
 

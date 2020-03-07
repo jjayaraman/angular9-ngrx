@@ -9,6 +9,7 @@ export class RegionsComponent implements OnInit {
 
   constructor() { }
 
+  @Input() label: string
   @Input() options: object[]
   @Input() optionLabel: string
   @Input() placeholder: string

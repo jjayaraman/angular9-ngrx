@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-2">
+        <label>Name</label>
+    </div>
+    <div class="col-10">
+        {{country.name}}
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-2">
+        <label>Capital</label>
+    </div>
+    <div class="col-10">
+        {{country.capital}}
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-2">
+        <label>Population</label>
+    </div>
+    <div class="col-10">
+        {{country.population}}
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-2">
+        <label>Currency</label>
+    </div>
+    <div class="col-10">
+        <div *ngFor="let currency of country.currencies">
+            <div *ngIf="currency.name">
+                {{currency.name}} - {{currency.code}} - {{currency.symbol}}
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-2">
+        <label>Flag</label>
+    </div>
+    <div class="col-10">
+        <img src={{country.flag}} alt='Flag' width="50px" height="30px" />
+    </div>
+</div>
+<br />
