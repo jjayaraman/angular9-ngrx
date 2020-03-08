@@ -7,7 +7,7 @@
         <p-panel header="Country Search">
             <br />
 
-            <regions label='Region' [options]='regions' optionLabel='label' placeholder='Choose a region'
+            <regions label='Region' [options]='regions$ | async' optionLabel='label' placeholder='Choose a region'
                 (onChange)='regionOnChange($event)'>
             </regions>
             <br />

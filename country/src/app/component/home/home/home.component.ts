@@ -1,6 +1,9 @@
 import { CountryService } from './../../../service/country.service';
 import { Component, OnInit } from '@angular/core';
 import Country from 'src/app/model/Country';
+import { Store, select } from '@ngrx/store'
+import { Observable } from 'rxjs'
+import { list } from './../../../store/action/region.action'
 
 @Component({
   selector: 'home',
@@ -9,19 +12,17 @@ import Country from 'src/app/model/Country';
 })
 export class HomeComponent implements OnInit {
 
-  regions: object[]
+  regions$: Observable<Array<object>>
   countries: object[]
   selectedRegion: string
   selectedCountry: Country
 
-  constructor(private countryService: CountryService) {
+  constructor(private countryService: CountryService, private store: Store<{ regions: object[] }>) {
   }
 
 
   ngOnInit(): void {
-    this.regions = [
-      { 'label': 'Asia', 'value': 'asia' },
-      { 'label': 'Europe', 'value': 'europe' }]
+    this.regions$ = this.store.pipe(select('regions'))
   }
 
 
