@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
   selectedRegion: string
   selectedCountry: Country
 
-  constructor(private countryService: CountryService, private store: Store<{ regions: object[] }>) {
+  constructor(
+    private store: Store<{ regions: Array<object> }>,
+    private countryService: CountryService) {
   }
 
 
