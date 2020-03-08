@@ -6,15 +6,14 @@
     <div class="container-fluid">
         <p-panel header="Country Search">
             <br />
-
             <regions label='Region' [options]='regions$ | async' optionLabel='label' placeholder='Choose a region'
                 (onChange)='regionOnChange($event)'>
             </regions>
             <br />
 
             <div *ngIf="selectedRegion">
-                <regions label='Country' [options]='countries' optionLabel='name' placeholder='Choose a country'
-                    (onChange)='countryOnChange($event)'>
+                <regions label='Country' [options]='countries$ | async' optionLabel='name'
+                    placeholder='Choose a country' (onChange)='countryOnChange($event)'>
                 </regions>
             </div>
             <br />
