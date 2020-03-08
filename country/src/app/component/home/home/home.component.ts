@@ -47,5 +47,11 @@ export class HomeComponent implements OnInit {
     this.selectedCountry = event.value
   }
 
+  reset() {
+    console.log('xxxx');
+
+    this.selectedRegion = ''
+    this.selectedCountry = null
+  }
 
 }

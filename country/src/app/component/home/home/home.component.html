@@ -17,15 +17,13 @@
                 </regions>
             </div>
             <br />
-            <button pButton type="reset" label="Reset"></button>
+            <button pButton type="button" label="Reset" (click)='reset()'></button>
         </p-panel>
         <br />
 
         <p-panel header="Country Details" *ngIf="selectedRegion && selectedCountry">
             <br />
-
             <country-details [country]='selectedCountry'></country-details>
-
         </p-panel>
 
     </div>
