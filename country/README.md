@@ -1,6 +1,9 @@
 # Country
 
+This is a simple Angular + NgRx project. It uses ngrx store and effects to call an external API and handles the asynchronous side effect
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+
 
 ## Development server
 

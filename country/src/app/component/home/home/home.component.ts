@@ -1,10 +1,8 @@
-import { CountryService } from './../../../service/country.service';
 import { Component, OnInit } from '@angular/core';
-import Country from 'src/app/model/Country';
 import { Store, select } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { list } from './../../../store/action/region.action'
 import { countriesByRegion, countriesByRegionLoaded } from './../../../store/action/country.action'
+import Country from 'src/app/model/Country';
 
 /**
  * Home container component which holds all the other child components
@@ -28,7 +26,7 @@ export class HomeComponent implements OnInit {
     private store: Store<{ regions: Array<object>, countries: Array<object> }>) {
   }
 
-
+  // Initialise
   ngOnInit(): void {
     this.regions$ = this.store.pipe(select('regions'))
     this.countries$ = this.store.pipe(select('countries'))
@@ -38,6 +36,7 @@ export class HomeComponent implements OnInit {
   regionOnChange(event) {
     this.selectedRegion = event.value
     this.selectedCountry = null // Clears previously loaded values
+
     let region = { 'region': this.selectedRegion } // input for API
     this.store.dispatch(countriesByRegion(region)); // ngrx dispatch to load countries by selected region
   }
@@ -47,9 +46,8 @@ export class HomeComponent implements OnInit {
     this.selectedCountry = event.value
   }
 
+  // Resets the page 
   reset() {
-    console.log('xxxx');
-
     this.selectedRegion = ''
     this.selectedCountry = null
   }
