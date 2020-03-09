@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Country App');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.heading').textContent).toContain('Country App');
-  });
 });

@@ -1,0 +1,15 @@
+$theme-color: #007187;
+
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px; 
+}
+
+.heading {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, $theme-color 50%, #0191B0 100%);
+    color: white;
+    font-size: x-large;
+}

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http'
+import { StoreModule } from '@ngrx/store'
 import { HomeComponent } from './home.component';
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,9 +10,13 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [HomeComponent],
+      imports: [
+        HttpClientModule,
+        StoreModule.forRoot({}),
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +27,10 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render title', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.heading').textContent).toContain('Country App');
   });
 });
