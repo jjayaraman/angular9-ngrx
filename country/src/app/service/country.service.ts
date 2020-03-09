@@ -18,6 +18,7 @@ export class CountryService {
   // API to get all the countries for the given region
   getCountriesByRegion(region: string) {
     const URL = environment.API_BASE + '/region/' + region
+    console.log('calling service...');
     return this.httpClient.get(URL)
   }
 

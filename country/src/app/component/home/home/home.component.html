@@ -5,8 +5,9 @@
     <div class="container-fluid">
         <p-panel header="Country Search">
             <br />
-            <regions label='Region' [options]='regions$ | async' optionLabel='label' placeholder='Choose a region'
-                (onChange)='regionOnChange($event)'>
+
+            <regions id='region' label='Region' [options]='regions$ | async' optionLabel='label'
+                placeholder='Choose a region' (onChange)='regionOnChange($event)'>
             </regions>
             <br />
 

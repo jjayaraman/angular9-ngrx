@@ -15,13 +15,14 @@ exports.config = {
   capabilities: {
     browserName: 'chrome'
   },
-  directConnect: true,
+  highlightDelay: 1000,
+  directConnect: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
-    print: function() {}
+    print: function () { }
   },
   onPrepare() {
     require('ts-node').register({

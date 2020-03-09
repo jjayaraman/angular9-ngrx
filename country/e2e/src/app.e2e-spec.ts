@@ -1,17 +1,18 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Country App e2e test suite', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display the app header as `Country App`', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('country app is running!');
+    expect(page.getBannerText()).toEqual('Country App');
   });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
