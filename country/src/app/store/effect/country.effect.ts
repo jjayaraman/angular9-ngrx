@@ -1,6 +1,7 @@
+import { select, Store } from '@ngrx/store';
 import { Injectable } from '@angular/core'
 import { createEffect, Actions, ofType } from '@ngrx/effects'
-import { map, mergeMap, exhaustMap, catchError } from 'rxjs/operators'
+import { map, mergeMap, exhaustMap, catchError, withLatestFrom } from 'rxjs/operators'
 import { EMPTY, of } from 'rxjs';
 import { CountryService } from './../../service/country.service';
 
@@ -15,6 +16,10 @@ export class CountryEffects {
     countries$ = createEffect(() =>
         this.actions$.pipe(
             ofType('[Country] findByRegion'),
+            withLatestFrom(
+                this.store.pipe(select('regions')),
+                this.store.pipe(select('countries'))
+            ),
             mergeMap(action =>
                 this.countryService.getCountriesByRegion(action['region'])
                     .pipe(
@@ -29,7 +34,8 @@ export class CountryEffects {
 
     constructor(
         private countryService: CountryService,
-        private actions$: Actions) {
+        private actions$: Actions,
+        private store: Store<{ regions: Array<object>, countries: Array<object> }>) {
     }
 
 }
